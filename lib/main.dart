@@ -1,5 +1,9 @@
-import 'package:bitroot_assignment/src/features/homepage.dart';
+import 'package:bitroot_assignment/src/features/bottombar/scan.dart';
+import 'package:bitroot_assignment/src/features/bottombar/send_request.dart';
+import 'package:bitroot_assignment/src/features/bottombar/settings.dart';
+import 'package:bitroot_assignment/src/features/homepage/homepage.dart';
 import 'package:bitroot_assignment/src/utils/const.dart';
+import 'package:bitroot_assignment/src/features/bottombar/root_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: kwhite,
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const RootPage(),
     );
   }
 }
