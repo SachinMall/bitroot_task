@@ -50,6 +50,15 @@ class SendAgain extends StatelessWidget {
                             color: kdarkgrey,
                             fontWeight: FontWeight.w500),
                       ),
+                      Text(
+                        user.surname,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            fontSize: 12,
+                            color: kdarkgrey,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ],
                   ),
                 );

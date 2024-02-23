@@ -10,6 +10,14 @@ class ScanReceipt extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: bgcolor,
         title: const Text("Scan Receipt"),
+        // centerTitle: true,
+      ),
+      body: const Center(
+        child: Text(
+          "No Acitivity",
+          style: TextStyle(
+              fontSize: 18, fontWeight: FontWeight.w500, color: textcolor),
+        ),
       ),
     );
   }

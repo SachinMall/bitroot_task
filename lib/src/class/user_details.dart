@@ -1,17 +1,20 @@
 import 'dart:convert';
 
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 class UserDetails {
   final String name;
+  final String surname;
   final String image;
+
   UserDetails({
     required this.name,
+    required this.surname,
     required this.image,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
+      'surname': surname,
       'image': image,
     };
   }
@@ -19,6 +22,7 @@ class UserDetails {
   factory UserDetails.fromMap(Map<String, dynamic> map) {
     return UserDetails(
       name: map['name'] as String,
+      surname: map['surname'] as String,
       image: map['image'] as String,
     );
   }
@@ -30,10 +34,12 @@ class UserDetails {
 
   UserDetails copyWith({
     String? name,
+    String? surname,
     String? image,
   }) {
     return UserDetails(
       name: name ?? this.name,
+      surname: surname ?? this.surname,
       image: image ?? this.image,
     );
   }

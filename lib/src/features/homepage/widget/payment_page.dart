@@ -60,18 +60,30 @@ class _PaymentPageState extends State<PaymentPage> {
                         color: kwhite),
                   ),
                   height5,
-                  Text(
-                    user.name,
-                    maxLines: 1,
-                    style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        color: kwhite),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        user.name,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: kwhite),
+                      ),
+                      kwidth5,
+                      Text(
+                        user.surname,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: kwhite),
+                      ),
+                    ],
                   ),
                   height15,
                   ElevatedButton(
                     onPressed: () {
-                      Get.off(() => const HomePage());
+                      Get.back();
                     },
                     style: ElevatedButton.styleFrom(
                       alignment: Alignment.center,

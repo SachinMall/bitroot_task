@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bitroot_assignment/src/features/homepage/widget/notifications.dart';
 import 'package:bitroot_assignment/src/features/homepage/widget/search_bar_filter.dart';
 import 'package:bitroot_assignment/src/features/homepage/widget/activity_shimmer.dart';
 import 'package:bitroot_assignment/src/features/homepage/widget/send_again_shimmer.dart';
@@ -68,7 +69,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: GestureDetector(
               onTap: () {
-                log("You Have New Notifications");
+                Get.to(() => const NotificationPage());
               },
               child:
                   const Icon(Icons.notifications, color: klightgrey, size: 28),

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bitroot_assignment/src/features/bottombar/root_page.dart';
 import 'package:bitroot_assignment/src/features/homepage/homepage.dart';
 import 'package:bitroot_assignment/src/features/homepage/widget/search_bar_filter.dart';
 import 'package:bitroot_assignment/src/features/homepage/widget/send_again_widget.dart';
@@ -37,7 +38,7 @@ class _SettingsState extends State<Settings> {
         actions: [
           TextButton(
             onPressed: () {
-              Get.off(() => const HomePage());
+              Get.off(() => const RootPage());
             },
             child: const Text(
               "Log Out",
