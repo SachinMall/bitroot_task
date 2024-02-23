@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   bool isLoading = true;
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3)).then((value) {
+    Future.delayed(const Duration(milliseconds: 1000)).then((value) {
       setState(() {
         isLoading = false;
       });
