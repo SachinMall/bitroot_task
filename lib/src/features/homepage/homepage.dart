@@ -166,7 +166,10 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Column(
                 children: [
-                  CustomSearchBar(controller: searchController),
+                  CustomSearchBar(recentActivity: ActivityData.recentactivity,
+                    controller: searchController,
+                    hintText: 'Search Transactions',
+                  ),
                   height10,
                   isLoading ? const ActivityShimmer() : const HomeActivity()
                 ],

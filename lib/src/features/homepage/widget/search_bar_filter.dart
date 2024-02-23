@@ -4,9 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomSearchBar extends StatelessWidget {
+  final bool? isActivity;
+  final String hintText;
   final TextEditingController controller;
+  final List<Map<String, dynamic>>? recentActivity;
 
-   CustomSearchBar({Key? key, required this.controller}) : super(key: key);
+  const CustomSearchBar(
+      {Key? key,
+      required this.controller,
+      this.isActivity = true,
+      required this.hintText,
+      this.recentActivity})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +25,20 @@ class CustomSearchBar extends StatelessWidget {
           width: Get.width * 0.85,
           child: TextField(
             onTap: () {
-              showSearch(context: context, delegate: CustomSearchDelegate());
+              showSearch(
+                context: context,
+                delegate:
+                    CustomSearchDelegate(suggestions: recentActivity ?? []),
+              );
             },
             controller: controller,
             decoration: InputDecoration(
               fillColor: bgcolor,
               filled: true,
               contentPadding: EdgeInsets.zero,
-              prefixIcon:  Icon(Icons.search, color: kblue),
-              hintText: 'Search Transactions',
-              hintStyle:  TextStyle(
+              prefixIcon: const Icon(Icons.search, color: kblue),
+              hintText: hintText,
+              hintStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w300,
                 color: kdarkgrey,
@@ -38,33 +51,38 @@ class CustomSearchBar extends StatelessWidget {
           ),
         ),
         height10,
-        Row(
-          children: [
-             Text(
-              "Your Activity",
-              style: TextStyle(
-                  fontSize: 18, color: textcolor, fontWeight: FontWeight.w600),
-            ),
-             Spacer(),
-            IconButton(
-              onPressed: () {},
-              icon:  Icon(Icons.sort, color: kblue),
-            ),
-          ],
-        ),
+        if (isActivity!)
+          Row(
+            children: [
+              const Text(
+                "Your Activity",
+                style: TextStyle(
+                    fontSize: 18,
+                    color: textcolor,
+                    fontWeight: FontWeight.w600),
+              ),
+              const Spacer(),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.sort, color: kblue),
+              ),
+            ],
+          ),
       ],
     );
   }
 }
 
 class CustomSearchDelegate extends SearchDelegate {
-  final List<Map<String, dynamic>> recentActivity = ActivityData.recentactivity;
+  final List<Map<String, dynamic>> suggestions;
+
+  CustomSearchDelegate({required this.suggestions});
 
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-        icon:  Icon(Icons.clear),
+        icon: const Icon(Icons.clear),
         onPressed: () {
           query = '';
         },
@@ -75,7 +93,7 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildLeading(BuildContext context) {
     return IconButton(
-      icon:  Icon(Icons.arrow_back),
+      icon: const Icon(Icons.arrow_back),
       onPressed: () {
         close(context, null);
       },
@@ -90,8 +108,8 @@ class CustomSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     final suggestionList = query.isEmpty
-        ? recentActivity
-        : recentActivity
+        ? suggestions
+        : suggestions
             .where((activity) =>
                 activity['product']
                     .toString()

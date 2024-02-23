@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bitroot_assignment/src/class/user_details.dart';
 import 'package:bitroot_assignment/src/features/homepage/widget/activity_shimmer.dart';
 import 'package:flutter/material.dart';
@@ -29,20 +31,25 @@ class SendAgain extends StatelessWidget {
               itemCount: UserData.defaultuser.length,
               itemBuilder: (context, index) {
                 var user = UserDetails.fromMap(UserData.defaultuser[index]);
-                return Column(
-                  children: [
-                    CustomCircularImage(image: user.image),
-                    height5,
-                    Text(
-                      user.name,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          fontSize: 12,
-                          color: kdarkgrey,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ],
+                return GestureDetector(
+                  onTap: () {
+                    log(user.name);
+                  },
+                  child: Column(
+                    children: [
+                      CustomCircularImage(image: user.image),
+                      height5,
+                      Text(
+                        user.name,
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            fontSize: 12,
+                            color: kdarkgrey,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
