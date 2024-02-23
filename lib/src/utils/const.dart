@@ -9,6 +9,8 @@ const Color klightgrey = Color.fromARGB(255, 189, 190, 192);
 const Color kdarkgrey = Color(0xff878787);
 const Color kred = Color(0xffFF4848);
 const Color kblue = Color(0xff1F75E9);
+const Color klightblue = Color(0xff549DFF);
+
 const Color kgreen = Color(0xff00CA39);
 const Color textcolor = Color(0xff333F53);
 const Color grey77 = Color(0xff777777);

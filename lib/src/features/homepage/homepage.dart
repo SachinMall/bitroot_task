@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   bool isLoading = true;
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 4)).then((value) {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       setState(() {
         isLoading = false;
       });
@@ -166,7 +166,8 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Column(
                 children: [
-                  CustomSearchBar(recentActivity: ActivityData.recentactivity,
+                  CustomSearchBar(
+                    recentActivity: ActivityData.recentactivity,
                     controller: searchController,
                     hintText: 'Search Transactions',
                   ),

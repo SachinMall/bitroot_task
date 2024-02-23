@@ -2,9 +2,11 @@ import 'dart:developer';
 
 import 'package:bitroot_assignment/src/class/user_details.dart';
 import 'package:bitroot_assignment/src/features/homepage/widget/activity_shimmer.dart';
+import 'package:bitroot_assignment/src/features/homepage/widget/payment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bitroot_assignment/src/model/user_data.dart';
 import 'package:bitroot_assignment/src/utils/const.dart';
+import 'package:get/get.dart';
 
 class SendAgain extends StatelessWidget {
   const SendAgain({super.key});
@@ -33,7 +35,7 @@ class SendAgain extends StatelessWidget {
                 var user = UserDetails.fromMap(UserData.defaultuser[index]);
                 return GestureDetector(
                   onTap: () {
-                    log(user.name);
+                    Get.to(() => const PaymentPage(), arguments: user);
                   },
                   child: Column(
                     children: [
